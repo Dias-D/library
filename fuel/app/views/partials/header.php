@@ -9,7 +9,7 @@
             </button>
 
             <a href="<?php echo Uri::base(); ?>" class="navbar-brand navbar-brand-img">
-                <img style="padding-top:13px;" width="150px" src="<?php echo Asset::get_file('logo.png', 'img'); ?>" />
+                <img style="padding-top:12px;" width="50px" src="<?php echo Asset::get_file('laravel-logo.png', 'img'); ?>" />
             </a>
         </div> <!-- /.navbar-header -->
 
@@ -17,7 +17,7 @@
             <ul class="nav navbar-nav navbar-left">
                 <li class="dropdown ">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                        Autor
+                        Autores
                         <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu" role="menu">
@@ -88,9 +88,6 @@
                                     <?php echo Html::anchor('admin/acl/grouppermission', 'Permissões de grupo'); ?>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            <?php echo Html::anchor('admin/log', 'Registro de atividades'); ?>
                         </li>
 
                         <?php if (Auth::check()): ?>
