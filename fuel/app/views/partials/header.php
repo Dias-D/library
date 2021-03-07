@@ -32,76 +32,37 @@
 
                 <li class="dropdown ">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                        Operação
+                        Editoras
                         <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <?php echo Html::anchor('recipe', 'Carregar Ficha Técnica'); ?>
-                        </li>
 
                         <li>
-                            <?php echo Html::anchor('variable/variablevalues/create', 'Lançamento de Valores Manuais'); ?>
+                            <?php echo Html::anchor('library/publisher', 'Visualizar Editoras'); ?>
                         </li>
                     </ul>
                 </li> <!-- /. menu administração -->
             </ul>
-
-            <!--<ul class="nav navbar-nav navbar-left">
-
-                <li class="dropdown ">
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                        Qualidade
-                        <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-            <?php //echo Html::anchor('variable/variablevalues/samples', 'Lançamento de Valores Manuais - Qualidade'); ?>
-            <?php echo Html::anchor('variable/manualvalue', 'Lançamento de Valores'); ?>
-                        </li>
-                    </ul>
-                </li> 
-            </ul> -->
-
             <ul class="nav navbar-nav navbar-left">
 
                 <li class="dropdown ">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                        Relatórios
+                        Livros
                         <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <?php echo Html::anchor('report/histogram', 'Histograma'); ?>
-                        </li>
-                        <li>
-                            <?php echo Html::anchor('report/logsheet', 'Visão Geral'); ?>
-                        </li>
-                        <li>
-                            <?php //echo Html::anchor('report/quality', 'Qualidade - Amostras'); ?>
-                        </li>
-                        <li>
-                            <?php echo Html::anchor('report/analysiscertificate', 'Laudo de Qualidade'); ?>
-                        </li>
-                        <li>
-                            <?php echo Html::anchor('report/monitoring', 'Board de operações'); ?>
-                        </li>
-                        <li>
-                            <?php echo Html::anchor('report/summary', 'Resumo'); ?>
-                        </li>
 
+                        <li>
+                            <?php echo Html::anchor('library/book', 'Visualizar Livros'); ?>
+                        </li>
                     </ul>
                 </li> <!-- /. menu administração -->
             </ul>
+
             <!-- menu direito -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- menu administracao -->
-                <li>
-                    <a href="<?php echo \Uri::create("support"); ?>">
-                        <i class="header-icon d-none d-sm-inline-block" data-toggle="tooltip" data-placement="buttom"
-                            title="Ajuda" style="color:white; font-size: 30px;"><strong>?</strong></i>
-                    </a>
-                </li>
+
                 <li class="dropdown ">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                         <?php echo ucfirst(Auth::instance()->get_screen_name()); ?>
@@ -127,10 +88,6 @@
                                     <?php echo Html::anchor('admin/acl/grouppermission', 'Permissões de grupo'); ?>
                                 </li>
                             </ul>
-                        </li>
-
-                        <li>
-                            <?php echo Html::anchor('admin/recordmanagement', 'Gerenciamento de inserções'); ?>
                         </li>
                         <li>
                             <?php echo Html::anchor('admin/log', 'Registro de atividades'); ?>
