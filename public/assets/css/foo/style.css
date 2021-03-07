@@ -1,0 +1,349 @@
+.save-recipe-form .modal-dialog {
+    width: 40% !important;
+}
+
+.phase-attributes-form .modal-dialog {
+    width: 99% !important;
+}
+
+.label-phase {
+    position: absolute;
+    text-align: center;
+    z-index: 800;
+    padding: 0;
+    margin: 0;
+    width: 150px;
+    margin-top: -10%;
+    white-space: nowrap; 
+    display: block;
+    bottom: 0;
+    left: 5%;
+    top: 0;
+    text-align: center;
+}
+
+#recipe-content {
+    width: 100%;
+    float: left;
+    position: relative;
+    min-height: 500px;
+}
+
+#recipe-content > div {
+    position: relative;
+    float: left;
+    margin-left: 5px;
+}
+
+#phases, #phases * {
+    z-index: 1015;
+}
+
+#phases {
+    width: 100%;
+    border: 2px solid #ddd;
+    height: 550px;
+    overflow-y: auto;
+    top: 0;
+}
+
+.position {
+    width: 9%;
+    position: relative;
+}
+
+.condition-box {
+    width: 30px;
+    height: 2px;
+    border: 1px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -1px;
+    margin-left: -15px;
+    background: #000;
+}
+
+#recipe-content #recipe-canvas {
+    width: 90%;
+    max-width: 90%;
+    border: 2px solid #ddd;
+    float: right;
+    overflow-y: auto;
+    margin: 0 !important;
+}
+
+#phases-item {
+    padding: 10px;
+    background: white;
+}
+
+li.dragg{
+    list-style: none;
+    font-size: 10px;
+    width: 50px;
+    left: 50%;
+    margin-left: -25px;
+    position: relative;
+    height: 50px;
+    padding: 5px;
+    background: #aaa;
+    text-align: center;
+    margin-bottom: 2px;
+    cursor: pointer;
+    font-weight: 700;
+    line-height:  50px !important;
+    border-radius: 5px;
+}
+
+li.divergence{
+    background: #fff !important;
+}
+
+li .divergence-and {
+    width: 45px;
+    height: 6px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    position: relative;
+    top: 50%;
+    margin-top: -3px;
+}
+
+li .divergence-or {
+    width: 45px;
+    height: 6px;
+    border-bottom: 1px solid;
+    position: relative;
+    top: 50%;
+    margin-top: -3px;
+}
+
+li .loop {
+    width: 45px;
+    height: 6px;
+    border-bottom: 1px solid;
+    position: relative;
+    top: 50%;
+    margin-top: -3px;
+}
+
+table {
+    width: 100%;
+    padding:0;
+    margin: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#dropabble, #dropabble tr, #dropabble tbody {
+    position: relative;
+}
+
+#dropabble tbody {
+    display: block;
+}
+
+#dropabble td {
+    width: 200px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    height: 120px;
+    background: #eee;
+    position: relative;
+    padding: 0 !important;
+    margin: 0 !important;
+    vertical-align: middle;
+}
+
+.jqSimpleConnect {
+    cursor: pointer;
+}
+
+/** Start, End, Loop Styles**/
+#dropabble .start, #dropabble .end, #dropabble .loop {
+    background: #fff;
+    z-index: 1000 !important;
+    cursor: pointer;
+    position: absolute !important;
+}
+
+#dropabble .loop {
+    width: 50px !important;
+    height: 50px !important;
+    top: 50% !important;
+    margin-top: -25px !important;
+    left: 50% !important;
+    margin-left: -25px !important;
+    box-shadow: -4px 5px 5px 0px #000000;
+}
+
+#dropabble .start, #dropabble .end {
+    width: 150px !important;
+    height: 50px !important;
+    top: 50% !important;
+    margin-top: -25px !important;
+    left: 50% !important;
+    margin-left: -75px !important;
+    box-shadow: -4px 5px 5px 0px #000000;
+}
+
+
+/** END start, end, loop Styles**/
+
+#dropabble .phase {
+    background: #fff !important;
+    width: 150px !important;
+    height: 50px !important;
+    z-index: 1000 !important;
+    cursor: pointer;
+    position: absolute !important;
+    top: 50%  !important;
+    margin-top: -25px !important;
+    left: 50% !important;
+    margin-left: -75px !important;
+    box-shadow: -4px 5px 5px 0px #000000;
+}
+
+.start, .end, .loop {
+    border-radius: 0;
+    line-height: 50px;
+    text-align: center;
+}
+
+#dropabble .phase {
+    border-radius: 5px;
+    line-height: 50px;
+    text-align: center;
+    word-break: break-all;
+}
+
+#dropabble .divergence {
+    width: 100%;
+    height: 6px;
+    top: 50%;
+    margin-top: -3px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 1000;
+    background: #eee
+}
+
+#dropabble .divergence-and {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+
+}
+
+#dropabble .divergence-or {
+    border-bottom: 1px solid;
+}
+
+.active {
+    background: #ddd !important;
+}
+
+.active-hover {
+    background: #ccc !important;
+}
+
+.jqSimpleConnect {
+    z-index: 999;
+}
+
+.phase, .phase-item {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome and Opera */
+    word-wrap: break-all;
+}
+
+#end, .end {
+    background-image: url('img/_end_.png') !important;
+    background-repeat: no-repeat !important;
+    padding: 0 !important;
+}
+
+#start, .start {
+    background-image: url('img/_begin_.png') !important;
+    background-repeat: no-repeat !important;
+
+}
+
+#loop, .loop {
+    background-image: url('img/loop.png') !important;
+    background-repeat: no-repeat !important;
+
+}
+
+#recipe-canvas .start{
+    background-image: url('img/begin.png') !important;
+    background-repeat: no-repeat !important;
+}
+
+#recipe-canvas .end{
+    background-image: url('img/end.png') !important;
+    background-repeat: no-repeat !important;
+    padding: 0 !important;
+}
+
+
+/*** Attributes List ***/
+
+.attrs-list {
+    position: absolute;
+    z-index: 9999;
+    background: #eee;
+    max-height: 200px;
+    overflow-y: auto;
+    min-width: 200px;
+    display: none;
+}
+
+.attrs-list ul{
+    padding: 0;
+}
+
+.attrs-list ul li {
+    list-style: none;
+    width: 100%;
+    text-align: left;
+    padding: 4px 8px;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+}
+
+.attrs-list ul li:hover {
+    background: #ddd;
+    font-weight: 600;
+}
+
+/** End Attributes List**/
+
+/** Content style **/
+body > #wrapper .container {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    max-width: 98% !important;
+}
+
+.condition-box:after {
+    content:'';
+    position:absolute;
+    top:-10px; bottom:-10px; 
+    left:-10px; right:-10px;
+}
+
+.divergence:after {
+    content:'';
+    position:absolute;
+    top:-15px; bottom:-15px; 
+    left:-15px; right:-15px; 
+}
+

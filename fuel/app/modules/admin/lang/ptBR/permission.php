@@ -1,0 +1,66 @@
+<?php
+
+return array(
+    'choose_group' => 'Escolha um grupo',
+    'next' => 'Avançar',
+    'group_permissions' => 'Permissões de grupo',
+    'save' => 'Salvar',
+    'cancel' => 'Cancelar',
+    'table' => array(
+        'module' => 'Módulo',
+        'actions' => 'Ações',
+        'screen' => 'Área',
+        'modules' => array(
+            'admin' => 'Admin',
+            'businessunit' => 'Unidade de negócio',
+            'cell' => 'Localização/Site',
+            'factory' => 'Fábrica',
+            'productionline' => 'Gerenciamento de máquina',
+            'variable' => 'Variável',
+            'recipe' => 'Receita',
+            'report' => 'Relatório',
+            'machine' => 'Processo/Template',
+            'variable' => 'Gerenciamento de variável',
+            'user' => 'Usuários',
+            'manualvariable' => 'Lançamento manual de variáveis',
+        ),
+        'permission' => array(
+            'group' => 'Grupo',
+            'grouppermission' => 'Permissão de grupo',
+            'businessunit' => 'Unidade de negócio',
+            'cell' => 'Localização/Site',
+            'factory' => 'Fábrica',
+            'productionline' => 'Gerenciamento de máquina',
+            'variable' => 'Criar variável',
+            'select' => 'Lista de seleção',
+            'engineeringunit' => 'Unidade de medida',
+            'recipe' => 'Receita',
+            'log' => 'Registro de atividades',
+            'analysiscertificate' => 'Laudo de Qualidade',
+            'logsheet' => 'Visão geral',
+            'histogram' => 'Histograma',
+            'machine' => 'Processo/Template',
+            'recordmanagement' => 'Gerenciamento de inserções',
+            'bulkupdate' => 'Atualização de receita em massa',
+            'user' => 'Usuários',
+            'method' => 'Métodos',
+            //'manualvalues' => 'Lançar valor de variável manual',
+            'variablevalues' => 'Lançar valor de variável manual',
+            'recipemethod' => 'Métodos de Receita'
+        ),
+        'action' => array(
+            'access' => 'Acesso',
+            'create' => 'Criar',
+            'update' => 'Atualizar',
+            'delete' => 'Deletar',
+            'finish' => 'Finalizar',
+            'resetpwd' => 'Resetar senha',
+            'import_product' => 'Importar',
+            'justify' => 'Justificar',
+            'clone' => 'Clonar',
+            'view' => 'Visualizar',
+            'reset_password' => 'Resetar Senha',
+            'parameter_files' => 'Arquivos de parâmetro'
+        )
+    )
+);

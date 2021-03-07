@@ -1,0 +1,189 @@
+#recipe-view-wrap {
+    width: 100%;
+}
+
+#recipe-icons {
+    float: right;
+    width: 5%;
+}
+
+#recipe-icons > ul {
+    list-style: none;
+    text-align: center;
+    position: fixed;
+}
+
+#recipe-icons > ul > li {
+    height: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#recipe-icons > ul > li .glyphicon {
+    font-size: 24px;
+}
+
+.label-phase {
+    position: absolute;
+    text-align: center;
+    z-index: 800;
+    padding: 0;
+    margin: 0;
+    transform-origin:   43% 87%;
+    width: 100%;
+    margin-top: -15%;
+    white-space: nowrap; 
+    display: block;
+    bottom: 0;
+    left: 5%;
+    top: 0;
+    text-align: center;
+}
+
+#recipe-content {
+    width: 92% !important;
+    margin: 0;
+    float: left;
+}
+
+#recipe-content #recipe-canvas {
+    border: 2px solid #ddd;
+    padding: 2px;
+}
+
+
+#recipe-content #phases {
+    width: 10%;
+    border: 2px solid #ddd;
+    min-height: 550px;
+
+}
+
+.condition-box{
+    width: 30px;
+    height: 2px;
+    border: 1px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -1px;
+    margin-left: -15px;
+    background: #000;
+}
+
+table {
+    width: 100%;
+    padding:0;
+    margin: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#dropabble td {
+    min-width: 120px !important;
+    height: 120px;
+    background: #eee;
+    position: relative;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+#dropabble .phase {
+    width: 100px !important;
+    height: 45%;
+    left: 30% !important;
+
+}
+
+#dropabble .start, #dropabble .end, #dropabble .phase {
+    border: 1px solid #bbb;
+    background: #fff;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    left: 50%;
+    margin-left: -25px;
+}
+
+.start, .end {
+    border-radius: 5px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.phase {
+    border-radius: 5px;
+
+    line-height: 50px;
+    text-align: center;
+
+    margin: 0; 
+    padding: 0; 
+    word-break: break-all;
+
+}
+
+
+#dropabble .divergence {
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 1000;
+    background: #eee
+}
+
+#dropabble .divergence-and {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+
+}
+
+#dropabble .divergence-or {
+    border-bottom: 1px solid;
+}
+
+.jqSimpleConnect {
+    z-index: 999;
+}
+
+.phase, .phase-item {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+              supported by Chrome and Opera */
+    word-wrap: break-all;
+}
+
+#recipe-canvas .end, #end {
+    background-image: url('img/end.png') !important;
+    background-repeat: no-repeat !important;
+    padding: 0 !important;
+}
+
+#recipe-canvas .start, #start {
+    background-image: url('img/begin.png') !important;
+    background-repeat: no-repeat !important;
+
+}
+
+/** Status Color **/
+.running {
+    background: #00ff7f !important;
+    font-weight: 700 !important;
+}
+
+.idle {
+    background: #aaa !important;
+    font-weight: 700 !important;
+}
+
+
+
