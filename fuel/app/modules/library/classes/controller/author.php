@@ -9,7 +9,7 @@ class Author extends \Controller\Admin {
         parent::before();
 
         if (!\Auth::has_access('library.author[access]')) {
-            \Session::set_flash('error', __('access_denied'));
+            \Session::set_flash('error', 'Acesso negado!!');
             \Response::redirect('main');
         }
     }
@@ -24,7 +24,7 @@ class Author extends \Controller\Admin {
     public function action_create()
     {
         if (!\Auth::has_access('library.author[create]')) {
-            \Session::set_flash('error', __('access_denied'));
+            \Session::set_flash('error', 'Acesso negado!!');
             \Response::redirect('library/author');
         }
 
@@ -53,7 +53,7 @@ class Author extends \Controller\Admin {
 
                     \Response::redirect('library/author');
                 } else {
-                    \Session::set_flash('error', 'Erro ao criar unidade tente novamente');
+                    \Session::set_flash('error', 'Erro ao criar Autor, tente novamente');
                 }
             } else {
                 \Session::set_flash('error', $val->error());
@@ -67,7 +67,7 @@ class Author extends \Controller\Admin {
     public function action_edit($id = null)
     {
         if (!\Auth::has_access('library.author[update]')) {
-            \Session::set_flash('error', __('access_denied'));
+            \Session::set_flash('error', 'Acesso negado!!');
             \Response::redirect('library/author');
         }
 
@@ -128,13 +128,23 @@ class Author extends \Controller\Admin {
     public function action_delete($id = null)
     {
         if (!\Auth::has_access('library.author[delete]')) {
-            \Session::set_flash('error', __('access_denied'));
+            \Session::set_flash('error', 'Acesso negado!!');
             \Response::redirect('library/author');
         }
 
         is_null($id) and \Response::redirect('unit');
 
-        if ($author = \Library\Model\Author::find($id)) {
+        $author = \Library\Model\Author::query()
+            ->related('book')
+            ->where('id', '=', $id)
+            ->get_one();
+
+        if ($author) {
+            if(!empty($author->book)) {
+                \Session::set_flash('warning', 'Não pode deletar. Registro relacionado em Livros.');
+                \Response::redirect('library/author');
+            }
+
             $oldRegistry = $author->to_array();
 
             $author->delete();
@@ -151,7 +161,7 @@ class Author extends \Controller\Admin {
 
             \Session::set_flash('success', 'Unidade deletada');
         } else {
-            \Session::set_flash('error', 'Unidade não pode ser deletada');
+            \Session::set_flash('error', 'Autor não pode ser deletada');
         }
 
         \Response::redirect('library/author');

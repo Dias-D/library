@@ -31,9 +31,9 @@ CREATE TABLE IF NOT EXISTS `author` (
 -- Copiando dados para a tabela library.author: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `author` DISABLE KEYS */;
 INSERT INTO `author` (`id`, `name`, `acronym`, `active`, `created_at`, `updated_at`, `deleted`) VALUES
-	(1, 'Diego Dias', 'DDs', 1, 1615127230, 1615128311, '0000-00-00 00:00:00'),
-	(2, 'Primeiro Autor Edit', 'PAEs', 0, 1615127918, 1615128296, '0000-00-00 00:00:00'),
-	(3, 'Primeiro Autor', 'PAs', 0, 1615127936, 1615128306, NULL);
+	(1, 'Diego Dias', 'DDs', 1, 1615127230, 1615158703, NULL),
+	(2, 'Primeiro Autor', 'PAEs', 0, 1615127918, 1615128296, '0000-00-00 00:00:00'),
+	(3, 'Segundo Autor', 'PAs', 0, 1615127936, 1615158698, NULL);
 /*!40000 ALTER TABLE `author` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela library.book
@@ -54,10 +54,10 @@ CREATE TABLE IF NOT EXISTS `book` (
   CONSTRAINT `FK_book_publisher` FOREIGN KEY (`publisher_id`) REFERENCES `publisher` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela library.book: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela library.book: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
 INSERT INTO `book` (`id`, `author_id`, `publisher_id`, `name`, `acronym`, `active`, `created_at`, `updated_at`, `deleted`) VALUES
-	(1, 3, 4, 'Era Outra Vez', '0', 0, 1615143049, 1615143918, '0000-00-00 00:00:00');
+	(1, 3, 4, 'Era Outra Vez', '0', 0, 1615143049, 1615143918, NULL);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela library.publisher
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `publisher` (
 -- Copiando dados para a tabela library.publisher: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `publisher` DISABLE KEYS */;
 INSERT INTO `publisher` (`id`, `name`, `description`, `active`, `created_at`, `updated_at`, `deleted`) VALUES
-	(4, 'A Centenario', 'Livros diversos', 0, 1615141128, 1615141182, NULL);
+	(4, 'A Centenario', 'Livros diversos', 0, 1615141128, 1615158854, NULL);
 /*!40000 ALTER TABLE `publisher` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela library.system_activity
@@ -91,9 +91,9 @@ CREATE TABLE IF NOT EXISTS `system_activity` (
   `created_at` int(11) DEFAULT '0',
   `updated_at` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela library.system_activity: ~9 rows (aproximadamente)
+-- Copiando dados para a tabela library.system_activity: ~13 rows (aproximadamente)
 /*!40000 ALTER TABLE `system_activity` DISABLE KEYS */;
 INSERT INTO `system_activity` (`id`, `user_id`, `date`, `event`, `module`, `area`, `old_registry`, `new_registry`, `created_at`, `updated_at`) VALUES
 	(1, 1, '2021-03-07 11:27:10', 'create', 'Library', 'Author', NULL, NULL, 1615127230, 1615127230),
@@ -107,7 +107,10 @@ INSERT INTO `system_activity` (`id`, `user_id`, `date`, `event`, `module`, `area
 	(9, 1, '2021-03-07 15:19:42', 'delete', 'Biblioteca', 'Editora', '{"id":"4","name":"A Centenario","description":"Livros diversos","active":"0","created_at":"1615141128","updated_at":"1615141176","deleted":null}', NULL, 1615141182, 1615141182),
 	(10, 1, '2021-03-07 15:50:49', 'create', 'Biblioteca', 'Livro', NULL, '{"id":"1","author_id":"3","publisher_id":"4","name":"Era Uma Vez","active":"1","created_at":1615143049,"updated_at":1615143049,"deleted":null}', 1615143049, 1615143049),
 	(11, 1, '2021-03-07 16:04:50', 'update', 'Biblioteca', 'Livro', '{"id":"1","author_id":"3","publisher_id":"4","name":"Era Uma Vez","active":"1","created_at":"1615143049","updated_at":"1615143049","deleted":null}', '{"id":"1","author_id":"3","publisher_id":"4","name":"Era Outra Vez","active":"0","created_at":"1615143049","updated_at":1615143890,"deleted":null}', 1615143890, 1615143890),
-	(12, 1, '2021-03-07 16:05:18', 'delete', 'Biblioteca', 'Livro', '{"id":"1","author_id":"3","publisher_id":"4","name":"Era Outra Vez","active":"0","created_at":"1615143049","updated_at":"1615143890","deleted":null}', NULL, 1615143918, 1615143918);
+	(12, 1, '2021-03-07 16:05:18', 'delete', 'Biblioteca', 'Livro', '{"id":"1","author_id":"3","publisher_id":"4","name":"Era Outra Vez","active":"0","created_at":"1615143049","updated_at":"1615143890","deleted":null}', NULL, 1615143918, 1615143918),
+	(13, 1, '2021-03-07 20:09:22', 'delete', 'Biblioteca', 'Autor', '{"id":"3","name":"Primeiro Autor","acronym":"PAs","active":"0","created_at":"1615127936","updated_at":"1615128306","deleted":null,"book":[]}', NULL, 1615158562, 1615158562),
+	(14, 1, '2021-03-07 20:11:38', 'delete', 'Biblioteca', 'Autor', '{"id":"3","name":"Primeiro Autor","acronym":"PAs","active":"0","created_at":"1615127936","updated_at":"1615158562","deleted":null,"book":[]}', NULL, 1615158698, 1615158698),
+	(15, 1, '2021-03-07 20:11:43', 'delete', 'Biblioteca', 'Autor', '{"id":"1","name":"Diego Dias","acronym":"DDs","active":"1","created_at":"1615127230","updated_at":"1615128311","deleted":null,"book":[]}', NULL, 1615158703, 1615158703);
 /*!40000 ALTER TABLE `system_activity` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela library.users
@@ -130,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Copiando dados para a tabela library.users: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `username`, `password`, `group_id`, `email`, `last_login`, `previous_login`, `login_hash`, `user_id`, `created_at`, `updated_at`, `deleted`) VALUES
-	(1, 'admin', 'Rhx07tqUHov59BMlLMZoeXi36PTDBzktSsqXK0UayWo=', 6, 'admin@example.org', '1615140000', '1615125899', 'ea86c7cf8fe58bb1c154bde20beac47e1d930509', 1, 1532353154, 1615140000, NULL);
+	(1, 'admin', 'Rhx07tqUHov59BMlLMZoeXi36PTDBzktSsqXK0UayWo=', 6, 'admin@example.org', '1615157525', '1615155755', '71b5b95aefdb3b3bec375d7609696d735ffce985', 1, 1532353154, 1615157526, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela library.users_clients

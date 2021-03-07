@@ -53,7 +53,7 @@ class Publisher extends \Controller\Admin {
 
                     \Response::redirect('library/publisher');
                 } else {
-                    \Session::set_flash('error', 'Erro ao criar unidade tente novamente');
+                    \Session::set_flash('error', 'Erro ao criar Editora, tente novamente');
                 }
             } else {
                 \Session::set_flash('error', $val->error());
@@ -134,7 +134,17 @@ class Publisher extends \Controller\Admin {
 
         is_null($id) and \Response::redirect('unit');
 
-        if ($publisher = \Library\Model\Publisher::find($id)) {
+        $publisher = \Library\Model\Publisher::query()
+            ->related('book')
+            ->where('id', '=', $id)
+            ->get_one();
+
+        if ($publisher) {
+            if(!empty($publisher->book)) {
+                \Session::set_flash('warning', 'Não pode deletar. Registro relacionado em Livros.');
+                \Response::redirect('library/publisher');
+            }
+
             $oldRegistry = $publisher->to_array();
 
             $publisher->delete();
@@ -149,9 +159,9 @@ class Publisher extends \Controller\Admin {
             ));
             $log->save();
 
-            \Session::set_flash('success', 'Unidade deletada');
+            \Session::set_flash('success', 'Editora deletada');
         } else {
-            \Session::set_flash('error', 'Unidade não pode ser deletada');
+            \Session::set_flash('error', 'Editora não pode ser deletada');
         }
 
         \Response::redirect('library/publisher');

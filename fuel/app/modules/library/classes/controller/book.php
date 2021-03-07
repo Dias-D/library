@@ -9,7 +9,7 @@ class Book extends \Controller\Admin {
         parent::before();
 
         if (!\Auth::has_access('library.book[access]')) {
-            \Session::set_flash('error', __('access_denied'));
+            \Session::set_flash('error', 'Acesso negado!!');
             \Response::redirect('main');
         }
     }
@@ -26,7 +26,7 @@ class Book extends \Controller\Admin {
     public function action_create()
     {
         if (!\Auth::has_access('library.book[create]')) {
-            \Session::set_flash('error', __('access_denied'));
+            \Session::set_flash('error', 'Acesso negado!!');
             \Response::redirect('library/book');
         }
 
@@ -56,7 +56,7 @@ class Book extends \Controller\Admin {
 
                     \Response::redirect('library/book');
                 } else {
-                    \Session::set_flash('error', 'Erro ao criar unidade tente novamente');
+                    \Session::set_flash('error', 'Erro ao criar Livro, tente novamente');
                 }
             } else {
                 \Session::set_flash('error', $val->error());
@@ -75,7 +75,7 @@ class Book extends \Controller\Admin {
     public function action_edit($id = null)
     {
         if (!\Auth::has_access('library.book[update]')) {
-            \Session::set_flash('error', __('access_denied'));
+            \Session::set_flash('error', 'Acesso negado!!');
             \Response::redirect('library/book');
         }
 
@@ -143,7 +143,7 @@ class Book extends \Controller\Admin {
     public function action_delete($id = null)
     {
         if (!\Auth::has_access('library.book[delete]')) {
-            \Session::set_flash('error', __('access_denied'));
+            \Session::set_flash('error', 'Acesso negado!!');
             \Response::redirect('library/book');
         }
 
@@ -164,9 +164,9 @@ class Book extends \Controller\Admin {
             ));
             $log->save();
 
-            \Session::set_flash('success', 'Unidade deletada');
+            \Session::set_flash('success', 'Livro deletado');
         } else {
-            \Session::set_flash('error', 'Unidade não pode ser deletada');
+            \Session::set_flash('error', 'Livro não pode ser deletado');
         }
 
         \Response::redirect('library/book');
