@@ -6,7 +6,7 @@
  																	
 *************************************************************************************
 
-* Dependencias:
+* Dependências:
 * XAMPP 7.0.13
 * => Apache 2.4.23
 * => PHP 7.0.13
@@ -32,4 +32,9 @@
 * No menu superior direito possuirão:
 * => Gerenciamento de usuários, grupos e respecitivas permissões
 * => Gerenciamento de Bibliotecas
-* => Opção para Sair (logout) 
+* => Opção para Sair (logout)
+
+* Na tela inicial apresentará um relatório com todos os livros cadastrados
+*************************************************************************************
+
+
