@@ -28,3 +28,8 @@
 * => Menu Autores para cadastros e atualizações de Autores
 * => Menu Editoras para cadastros e atualizações de Editoras
 * => Menu Livros para cadastros e atualizações de Livros
+
+* No menu superior direito possuirão:
+* => Gerenciamento de usuários, grupos e respecitivas permissões
+* => Gerenciamento de Bibliotecas
+* => Opção para Sair (logout) 

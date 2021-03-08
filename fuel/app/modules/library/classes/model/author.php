@@ -49,7 +49,7 @@ class Author extends \Orm\Model_Soft {
     public static function validate($factory)
     {
         $val = \Validation::forge($factory);
-        $val->add_field('name', 'Nome', 'required|max_length[50]');
+        $val->add_field('name', 'Nome', 'required|max_length[20]');
         $val->add_field('acronym', 'Sigla', 'required|max_length[20]');
         $val->add_field('active', 'Status', 'required');
 

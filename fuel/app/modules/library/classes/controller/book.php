@@ -35,6 +35,7 @@ class Book extends \Controller\Admin {
 
             if ($val->run()) {
                 $book = \Library\Model\Book::forge(array(
+                            'library_id' => \Input::post('library_id'),
                             'author_id' => \Input::post('author_id'),
                             'publisher_id' => \Input::post('publisher_id'),
                             'name' => \Input::post('name'),
@@ -63,6 +64,7 @@ class Book extends \Controller\Admin {
             }
         }
 
+        $tplData['library'] = \Library\Model\Library::find('all');
         $tplData['publisher'] = \Library\Model\Publisher::find('all');
         $tplData['author'] = \Library\Model\Author::find('all');
 
@@ -92,6 +94,7 @@ class Book extends \Controller\Admin {
             $oldRegistry = $book->to_array();
 
             $data = array(
+                'library_id' => \Input::post('library_id'),
                 'author_id' => \Input::post('author_id'),
                 'publisher_id' => \Input::post('publisher_id'),
                 'name' => \Input::post('name'),
@@ -120,6 +123,7 @@ class Book extends \Controller\Admin {
             }
         } else {
             if (\Input::method() == 'POST') {
+                $book->library_id = $val->validated('library_id');
                 $book->author_id = $val->validated('author_id');
                 $book->publisher_id = $val->validated('publisher_id');
                 $book->name = $val->validated('name');
@@ -128,6 +132,7 @@ class Book extends \Controller\Admin {
                 \Session::set_flash('error', $val->error());
             }
             
+            $tplData['library'] = \Library\Model\Library::find('all');
             $tplData['publisher'] = \Library\Model\Publisher::find('all');
             $tplData['author'] = \Library\Model\Author::find('all');
 

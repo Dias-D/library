@@ -4,6 +4,16 @@
     <div class="row">
         <div class="form-group">
             <div class="col-md-3">
+                <?php echo Form::label('Biblioteca', 'library', array('class' => 'control-label')); ?>
+                <select name="library_id" class="col-md-4 form-control">
+                    <option selected value="">Selecione...</option>
+                    <?php foreach ($tplData['library'] as $item): ?>
+                    <option <?php  (isset($book) && $book->library_id == $item->id) && print "selected";  ?>
+                        value="<?php echo $item->id ?>"> <?php echo $item->name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="col-md-3">
                 <?php echo Form::label('Autor', 'author', array('class' => 'control-label')); ?>
                 <select name="author_id" class="col-md-4 form-control">
                     <option selected value="">Selecione...</option>

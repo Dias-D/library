@@ -90,6 +90,9 @@
                             </ul>
                         </li>
 
+                        <li>
+                            <?php echo Html::anchor('library', 'Gerenciamento de Biblioteca'); ?>
+                        </li>
                         <?php if (Auth::check()): ?>
                         <li>
                             <?php echo Html::anchor('auth/logout', __('header.menu.logout')); ?>

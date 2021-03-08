@@ -7,6 +7,8 @@ class Main extends Admin {
     public function before()
     {
         parent::before();
+
+        \Module::load('library');
     }
 
     /**
@@ -17,6 +19,11 @@ class Main extends Admin {
      */
     public function action_index()
     {
+        $tplData['book'] = \Library\Model\Book::query()
+            ->related(['author', 'library', 'publisher'])
+            ->get();
+
         $this->template->title = 'Biblioteca';
+        $this->template->content = \view::forge('main/index', $tplData);
     }
 }

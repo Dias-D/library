@@ -2,13 +2,13 @@
 
 namespace Library\Controller;
 
-class Author extends \Controller\Admin {
+class Library extends \Controller\Admin {
 
     public function before()
     {
         parent::before();
 
-        if (!\Auth::has_access('library.author[access]')) {
+        if (!\Auth::has_access('library.library[access]')) {
             \Session::set_flash('error', 'Acesso negado!!');
             \Response::redirect('main');
         }
@@ -16,155 +16,152 @@ class Author extends \Controller\Admin {
 
     public function action_index()
     {
-        $data['author'] = \Library\Model\Author::find('all');
-        $this->template->title = "Autor";
-        $this->template->content = \View::forge('author/index', $data);
+        $data['library'] = \Library\Model\Library::find('all');
+        $this->template->title = "Biblioteca";
+        $this->template->content = \View::forge('index', $data);
     }
 
     public function action_create()
     {
-        if (!\Auth::has_access('library.author[create]')) {
+        if (!\Auth::has_access('library.library[create]')) {
             \Session::set_flash('error', 'Acesso negado!!');
-            \Response::redirect('library/author');
+            \Response::redirect('library');
         }
 
         if (\Input::method() == 'POST') {
-            $val = \Library\Model\Author::validate('create');
+            $val = \Library\Model\Library::validate('create');
 
             if ($val->run()) {
-                $author = \Library\Model\Author::forge(array(
+                $library = \Library\Model\Library::forge(array(
                             'name' => \Input::post('name'),
-                            'acronym' => \Input::post('acronym'),
+                            'description' => \Input::post('description'),
                             'active' => \Input::post('active')
                 ));
 
-                if ($author and $author->save()) {
+                if ($library and $library->save()) {
                     $log = \Model\SystemActivity::forge(array(
                                 'user_id' => $this->getCurrentUser()->id,
                                 'date' => date('Y-m-d H:i:s'),
                                 'event' => \Model\SystemActivity::TYPE_CREATE,
                                 'module' => 'Biblioteca',
-                                'area' => 'Autor',
-                                'new_registry' => json_encode($author->to_array())
+                                'new_registry' => json_encode($library->to_array())
                     ));
                     $log->save();
 
                     \Session::set_flash('Inserido com sucesso');
 
-                    \Response::redirect('library/author');
+                    \Response::redirect('library');
                 } else {
-                    \Session::set_flash('error', 'Erro ao criar Autor, tente novamente');
+                    \Session::set_flash('error', 'Erro ao criar Biblioteca, tente novamente');
                 }
             } else {
                 \Session::set_flash('error', $val->error());
             }
         }
 
-        $this->template->title = "Autor";        
-        $this->template->content = \View::forge('author/create');
+        $this->template->title = "Biblioteca";        
+        $this->template->content = \View::forge('create');
     }
 
     public function action_edit($id = null)
     {
-        if (!\Auth::has_access('library.author[update]')) {
+        if (!\Auth::has_access('library.library[update]')) {
             \Session::set_flash('error', 'Acesso negado!!');
-            \Response::redirect('library/author');
+            \Response::redirect('library');
         }
 
         is_null($id) and \Response::redirect('unit');
 
-        if (!$author = \Library\Model\Author::find($id)) {
+        if (!$library = \Library\Model\Library::find($id)) {
             \Session::set_flash('error', 'Não foi encontrado dados para o #' . $id);
-            \Response::redirect('library/author');
+            \Response::redirect('library');
         }
 
-        $val = \Library\Model\Author::validate('edit');
+        $val = \Library\Model\Library::validate('edit');
 
         if ($val->run()) {
-            $oldRegistry = $author->to_array();
+            $oldRegistry = $library->to_array();
 
             $data = array(
                 'name' => \Input::post('name'),
-                'acronym' => \Input::post('acronym'),
+                'description' => \Input::post('description'),
                 'active' => \Input::post('active')
             );
 
-            $author->set($data);
+            $library->set($data);
 
-            if ($author && $author->save()) {
+            if ($library && $library->save()) {
                 $log = \Model\SystemActivity::forge(array(
                             'user_id' => $this->getCurrentUser()->id,
                             'date' => date('Y-m-d H:i:s'),
                             'event' => \Model\SystemActivity::TYPE_UPDATE,
                             'module' => 'Biblioteca',
-                            'area' => 'Autor',
                             'old_registry' => json_encode($oldRegistry),
-                            'new_registry' => json_encode($author->to_array())
+                            'new_registry' => json_encode($library->to_array())
                 ));
                 $log->save();
 
                 \Session::set_flash('success', 'Editado com sucesso');
 
-                \Response::redirect('library/author');
+                \Response::redirect('library');
             } else {
                 \Session::set_flash('error', 'Erro ao salvar, tente novamente');
             }
         } else {
             if (\Input::method() == 'POST') {
-                $author->name = $val->validated('name');
-                $author->acronym = $val->validated('acronym');
-                $author->active = $val->validated('active');
+                $library->name = $val->validated('name');
+                $library->description = $val->validated('description');
+                $library->active = $val->validated('active');
 
                 \Session::set_flash('error', $val->error());
             }
 
-            $this->template->set_global('author', $author, false);
+            $this->template->set_global('library', $library, false);
         }
 
-        $this->template->title = "Autor";
-        $this->template->content = \View::forge('author/edit');
+        $this->template->title = "Biblioteca";
+        $this->template->content = \View::forge('edit');
     }
 
     public function action_delete($id = null)
     {
-        if (!\Auth::has_access('library.author[delete]')) {
+        if (!\Auth::has_access('library.library[delete]')) {
             \Session::set_flash('error', 'Acesso negado!!');
-            \Response::redirect('library/author');
+            \Response::redirect('library');
         }
 
         is_null($id) and \Response::redirect('unit');
 
-        $author = \Library\Model\Author::query()
+        $library = \Library\Model\Library::query()
             ->related('book')
             ->where('id', '=', $id)
             ->get_one();
 
-        if ($author) {
-            if(!empty($author->book)) {
+        if ($library) {
+            if(!empty($library->book)) {
                 \Session::set_flash('warning', 'Não pode deletar. Registro relacionado em Livros.');
-                \Response::redirect('library/author');
+                \Response::redirect('library');
             }
 
-            $oldRegistry = $author->to_array();
+            $oldRegistry = $library->to_array();
 
-            $author->delete();
+            $library->delete();
 
             $log = \Model\SystemActivity::forge(array(
                         'user_id' => $this->getCurrentUser()->id,
                         'date' => date('Y-m-d H:i:s'),
                         'event' => \Model\SystemActivity::TYPE_DELETE,
                         'module' => 'Biblioteca',
-                        'area' => 'Autor',
                         'old_registry' => json_encode($oldRegistry)
             ));
             $log->save();
 
-            \Session::set_flash('success', 'Autor deletado');
+            \Session::set_flash('success', 'Biblioteca deletada');
         } else {
-            \Session::set_flash('error', 'Autor não pode ser deletado');
+            \Session::set_flash('error', 'Biblioteca não pode ser deletada');
         }
 
-        \Response::redirect('library/author');
+        \Response::redirect('library');
     }
 
 }
