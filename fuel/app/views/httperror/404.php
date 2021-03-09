@@ -24,7 +24,7 @@
         <!-- App CSS -->
         <?php echo Asset::css('mvpready-admin.css'); ?>
         <?php echo Asset::css('mvpready-flat.css'); ?>
-        <?php echo Asset::css('bms/animate-icon.css'); ?>
+        <?php echo Asset::css('library/animate-icon.css'); ?>
 
         <link rel="stylesheet" href="<?php echo Asset::get_file('plugins/bootstrap-dialog/css/bootstrap-dialog.css', 'js'); ?>">
 
