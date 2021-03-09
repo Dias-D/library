@@ -9,7 +9,7 @@
             </button>
 
             <a href="<?php echo Uri::base(); ?>" class="navbar-brand navbar-brand-img">
-                <img style="padding-top:12px;" width="50px" src="<?php echo Asset::get_file('laravel-logo.png', 'img'); ?>" />
+                <img style="padding-top:11px;" width="40px" src="<?php echo Asset::get_file('logo_new.png', 'img'); ?>" />
             </a>
         </div> <!-- /.navbar-header -->
 

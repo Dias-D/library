@@ -34,7 +34,7 @@
                     <td class="text-center"><?php echo $item->author->name; ?></td>
                     <td class="text-center"><?php echo $item->publisher->name; ?></td>
                     <td class="text-center"><?php echo $item->name; ?></td>
-                    <td class="text-center"><?php echo $item->active; ?></td>
+                    <td class="text-center"><?php echo ($item->active == 1) ? 'Ativo' : 'Inativo'; ?></td>
                     <td class="text-center">
                         <div class="btn-group">
                             <?php if (\Auth::has_access('library.book[update]')): ?>

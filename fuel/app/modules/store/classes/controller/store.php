@@ -6,7 +6,6 @@ class Store extends \Controller_template {
     
     public function action_index()
     {
-
         \Module::load('library');
 
         $data['store'] = \Library\Model\Book::find('all');
