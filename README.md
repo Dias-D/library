@@ -1,40 +1,31 @@
-#LIBRARY																				
-																				
-* Version: 1																		
-																					
-* Diego Dias																	
- 																	
-*************************************************************************************
+#LIBRARY
 
-* Dependências:
-* XAMPP 7.0.13
-* => Apache 2.4.23
-* => PHP 7.0.13
-* => MySQL 15.1
+* Version: 1
+* Author: Diego Dias
 
-*************************************************************************************
+**********************************************************************
 
-* O primeiro passo é uma área de login:
-* Usuário: admin, Senha: admin
+* Tecnologias Utilizadas:
+=> Apache 2.4.23
+=> PHP 7.0.13
+=> MySQL 15.1
+=> Fuel
+=> Bootstrap
+=> jQuery
 
-*************************************************************************************
+**********************************************************************
 
-* Com os dados corretos, a tela inicial será apresentada
+* Instruções de instalação:
+* Para utilização do sistema, faça a descompactação do arquivo do projeto em seu servidor.
+* Em seguida execute o arquivo bd.sql no servidor mysql.
+* No diretório fuel/app/config/development, configure o arquivo db.php apontando para a base de dados do projeto.
 
-*************************************************************************************
+**********************************************************************
 
-* No cabeçalho e menu superior esquerdo possuirão:
-* => Logotipo com a opção de click para voltar a página inicial
-* => Menu Autores para cadastros e atualizações de Autores
-* => Menu Editoras para cadastros e atualizações de Editoras
-* => Menu Livros para cadastros e atualizações de Livros
+* Para acessar o painel, entre com o link: localhost/nomedoprojeto/public
+* Usuário: admin	
+* Senha: admin
 
-* No menu superior direito possuirão:
-* => Gerenciamento de usuários, grupos e respecitivas permissões
-* => Gerenciamento de Bibliotecas
-* => Opção para Sair (logout)
+**********************************************************************
 
-* Na tela inicial apresentará um relatório com todos os livros cadastrados
-*************************************************************************************
-
-
+* Para acessar a loja, entre com o link: localhost/nomedoprojeto/public/store
